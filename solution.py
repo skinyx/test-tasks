@@ -9,10 +9,10 @@ def friendship(candy_list) -> int:
     #Чтобы не считать НОД попарно для всех комбинаций количества конфет, отсортируем значения по убыванию и найдём его итеративно, ведь: a % b = b % c = 0 -> a % c = 0
     #Оставлю только уникальные значения количества конфет: итоговый НОД от этого не изменится
     unique_counts = sorted(set(candy_counter.values()), reverse=True)
-    #Если попадутся два взаимно простых числа - объявляю 1 НОД'ом 
     gcd_ = unique_counts.pop()
     while unique_counts:
         gcd_ = gcd(gcd_, unique_counts.pop())
+        #Если попадутся два взаимно простых числа - объявляю 1 НОД'ом 
         if gcd_ == 1:
             return 1
     return gcd_
